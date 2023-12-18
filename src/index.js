@@ -1,4 +1,5 @@
 import { json } from '@vercel/edge'
+import { getFlag } from './utils'
 
 export default {
   fetch(request) {
@@ -9,7 +10,7 @@ export default {
       const geo = {
         city: request.cf.city,
         country: request.cf.country,
-        flag: request.cf.country,
+        flag: getFlag(request.cf.country),
         countryRegion: request.cf.region,
         region: request.cf.colo,
         latitude: request.cf.latitude,

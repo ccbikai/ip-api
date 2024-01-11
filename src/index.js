@@ -1,5 +1,6 @@
 import { json } from '@vercel/edge'
 import { getFlag } from './utils'
+import { CORS_HEADERS} from './config'
 
 export default {
   fetch(request) {
@@ -21,8 +22,16 @@ export default {
       return json({
         ip,
         ...geo
+      }, {
+        headers: {
+          ...CORS_HEADERS
+        }
       })
     }
-    return new Response(ip)
+    return new Response(ip, {
+      headers: {
+        ...CORS_HEADERS
+      }
+    })
   }
 }

@@ -1,4 +1,5 @@
 import { ipAddress, geolocation, json } from '@vercel/edge'
+import { CORS_HEADERS} from './src/config'
 
 export default function middleware(request) {
   const ip = ipAddress(request)
@@ -10,7 +11,15 @@ export default function middleware(request) {
     return json({
       ip,
       ...geo
+    }, {
+      headers: {
+        ...CORS_HEADERS
+      }
     })
   }
-  return new Response(ip)
+  return new Response(ip, {
+    headers: {
+      ...CORS_HEADERS
+    }
+  })
 }

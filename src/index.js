@@ -4,7 +4,7 @@ import { CORS_HEADERS} from './config'
 
 export default {
   fetch(request) {
-    const ip = request.headers.get('cf-connecting-ip')
+    const ip = request.headers.get('x-real-ip')
     const { pathname } = new URL(request.url)
     console.log(ip, pathname)
     if (pathname === '/geo') {
@@ -24,13 +24,15 @@ export default {
         ...geo
       }, {
         headers: {
-          ...CORS_HEADERS
+          ...CORS_HEADERS,
+          'x-client-ip': ip
         }
       })
     }
     return new Response(ip, {
       headers: {
-        ...CORS_HEADERS
+        ...CORS_HEADERS,
+        'x-client-ip': ip
       }
     })
   }

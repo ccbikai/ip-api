@@ -13,13 +13,15 @@ export default function middleware(request) {
       ...geo
     }, {
       headers: {
-        ...CORS_HEADERS
+        ...CORS_HEADERS,
+        'x-client-ip': ip
       }
     })
   }
   return new Response(ip, {
     headers: {
-      ...CORS_HEADERS
+      ...CORS_HEADERS,
+      'x-client-ip': ip
     }
   })
 }

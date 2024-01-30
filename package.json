@@ -4,10 +4,12 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "vercel dev",
-    "worker": "wrangler dev",
-    "prod": "vercel --prod",
-    "deploy": "wrangler deploy"
+    "dev:cloudflare": "wrangler dev",
+    "dev:vercel": "vercel dev",
+    "dev:netlify": "netlify dev",
+    "deploy:cloudflare": "wrangler deploy",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --build --prod --dir netlify"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +18,8 @@
     "@vercel/edge": "^1.1.1"
   },
   "devDependencies": {
-    "wrangler": "^3.21.0",
-    "vercel": "^32.7.2"
+    "netlify-cli": "^17.15.4",
+    "vercel": "^32.7.2",
+    "wrangler": "^3.21.0"
   }
 }

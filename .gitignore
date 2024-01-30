@@ -145,3 +145,6 @@ dist
 
 .vercel
 .wrangler
+
+# Local Netlify folder
+.netlify

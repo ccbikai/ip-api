@@ -1,4 +1,3 @@
-import { json } from '@vercel/edge'
 import { getFlag } from './utils'
 import { CORS_HEADERS} from './config'
 
@@ -19,7 +18,7 @@ export default {
         asOrganization: request.cf.asOrganization
       }
       console.log(geo)
-      return json({
+      return Response.json({
         ip,
         ...geo
       }, {

@@ -42,6 +42,8 @@ GEO 信息格式：
 # clone 此项目
 git clone https://github.com/ccbikai/ip-api.git
 
+# 进入项目目录
+cd ip-api
 # 安装依赖
 npm i
 

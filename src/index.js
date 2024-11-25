@@ -12,7 +12,7 @@ export default {
       const geo = {
         flag: country && getFlag(country),
         country: country,
-        countryRegion: request.cf?.region || request.headers.get('cf-ipregion'),
+        countryRegion: request.cf?.region || request.headers.get('cf-region'),
         city: request.cf?.city || request.headers.get('cf-ipcity'),
         region: request.cf?.colo || colo,
         latitude: request.cf?.latitude || request.headers.get('cf-iplatitude'),

@@ -3,7 +3,7 @@ import { CORS_HEADERS } from './config'
 
 export default {
   fetch(request) {
-    const ip = request.headers.get('cf-connecting-ip') || request.headers.get('true-client-ip') || request.headers.get('x-real-ip') || request.headers.get('x-forwarded-for')
+    const ip = request.headers.get('x-real-ip') || request.headers.get('cf-connecting-ipv6') || request.headers.get('cf-connecting-ip')
     const { pathname } = new URL(request.url)
     console.log(ip, pathname)
     if (pathname === '/geo') {
